@@ -33,10 +33,52 @@ Nov 27 16:34:27 localhost.localdomain systemd[1]: Started The Apache HTTP Server
 Nov 27 16:34:27 localhost.localdomain httpd[52051]: Server configured, listening on: port 80
 lines 1-20/20 (END)
 ````
+- **Configuration serveur**
+````
+sudo nano /var/www/html/index.html
+````
+````
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linux is Better</title>
+    <style>
+        body {
+            background-color: #f0f0f0;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            color: #333;
+            font-size: 48px;
+            text-align: center;
+            animation: fadeIn 2s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <h1>Linux is better</h1>
+</body>
+</html>
+````
 
 ````
-[dylan@localhost ~]$ sudo firewall-cmd --zone=public --permanent --add-service=http
-success
-[dylan@localhost ~]$ sudo firewall-cmd --reload
-success
+sudo firewall-cmd --zone=public --permanent --add-service=http
+````
+````
+sudo firewall-cmd --reload
+````
+- **Accès page web**
+````
+http://IP_du_site
 ````
