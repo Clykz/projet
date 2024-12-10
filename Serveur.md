@@ -99,5 +99,15 @@ sudo firewall-cmd --reload
 ```
 firewall-cmd --zone=public --list-all
 ```
-
-
+- **Ouverture des ports dans la zone public**
+```
+sudo firewall-cmd --zone=public --permanent --add-port=443/tcp
+sudo firewall-cmd --zone=public --permanent --add-port=80/tcp
+sudo firewall-cmd --reload
+```
+- **Retire les services par defaut**
+```
+sudo firewall-cmd --permanent --remove-service dhcpv6-client
+sudo firewall-cmd --permanent --remove-service cockpit
+sudo firewall-cmd --reload
+````
