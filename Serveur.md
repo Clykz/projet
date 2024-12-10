@@ -82,3 +82,22 @@ sudo firewall-cmd --reload
 ````
 http://IP_du_site
 ````
+## Configuration parefeu firewalld
+
+- **Active le parefeu**
+```
+sudo systemctl start firewall
+sudo firewall-cmd --reload
+```
+- **Ajouter des services**
+```
+sudo firewall-cmd --zone=public --add-service=http --permanent
+sudo firewall-cmd --zone=public --add-service=https --permanent
+sudo firewall-cmd --reload
+```
+- **Vérifie la modification**
+```
+firewall-cmd --zone=public --list-all
+```
+
+
